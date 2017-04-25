@@ -15,7 +15,11 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("<Raspberry Pi IP Address>", 1883, 60)
+client.connect("<Raspberry Pi IP Address>", 1883, 60) 
+# normally the IP section is filled with "localhost" or "127.0.0.1"
+# this assumes that the MQTT broker is the Raspberry Pi itself
+# this assumes that the MQTT broker service has already started
+# check service status: sudo systemctl status mosquitto.service
 
 # Blocking call that processes network traffic, dispatches callbacks and
 # handles reconnecting.
